@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feathered Marvels | Bird Facts</title>
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #27ae60;
+            --accent-light: #d5f5e3;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        /* --- Main Content Container --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 20px;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .intro-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Facts Grid --- */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* --- Fact Cards --- */
+        .fact-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--accent-color);
+            position: relative;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            height: 150px;
+            background-color: var(--accent-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-body h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+        }
+    
+/* --- Navigation --- */
+.navbar{
+position:sticky;top:0;z-index:1000;
+background:#ffffff;
+display:flex;justify-content:space-between;align-items:center;
+padding:14px 24px;box-shadow:var(--shadow);
+}
+.nav-menu{display:flex;gap:18px;list-style:none;}
+.nav-menu a{text-decoration:none;color:var(--primary-color);font-weight:600;}
+.search-box{
+display:flex;gap:8px;align-items:center;
+}
+.search-box input{
+padding:10px 14px;border:1px solid #ccc;border-radius:25px;min-width:220px;
+}
+.search-box button{
+padding:10px 16px;border:none;border-radius:25px;
+background:var(--accent-color);color:white;cursor:pointer;
+}
+@media(max-width:768px){
+.navbar{flex-direction:column;gap:10px}
+.nav-menu{flex-wrap:wrap;justify-content:center}
+.search-box input{min-width:160px}
+}
+
+
+.contact-form{
+max-width:700px;
+margin:40px auto;
+background:#fff;
+padding:30px;
+border-radius:12px;
+box-shadow:var(--shadow);
+}
+.contact-form form{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+.contact-form input,
+.contact-form textarea{
+padding:12px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
+}
+.contact-form button{
+padding:12px;
+border:none;
+border-radius:8px;
+background:var(--accent-color);
+color:white;
+cursor:pointer;
+font-size:16px;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div><strong>🐦 Feathered Marvels</strong></div>
+<ul class="nav-menu">
+<li><a href="#">Home</a></li>
+<li><a href="#">Bird Facts</a></li>
+<li><a href="#">Gallery</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+<div class="search-box">
+<input type="text" placeholder="Search birds...">
+<button>Search</button>
+</div>
+</nav>
+
+
+    <!-- Header Section -->
+    <header>
+        <h1>Feathered Marvels</h1>
+        <p>Discover the incredible world of birds—from the fastest dive to the smartest mimic.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="intro-text">
+            <h2>Did You Know?</h2>
+            <p>Birds are some of the most fascinating creatures on Earth. With over 10,000 species, they have adapted to nearly every environment. Here are a few mind-blowing facts about our avian friends.</p>
+        </div>
+
+        <!-- Grid of Facts -->
+        <div class="facts-grid">
+            
+            <!-- Fact 1 -->
+            <article class="fact-card">
+                <div class="card-header">🦅</div>
+                <div class="card-body">
+                    <span class="card-tag">Speed Demon</span>
+                    <h3>The Peregrine Falcon</h3>
+                    <p>While the cheetah is the fastest animal on land, the Peregrine Falcon wins the race in the air. When diving for prey, it can reach speeds over <strong>200 miles per hour (320 km/h)</strong>!</p>
+                </div>
+            </article>
+
+            <!-- Fact 2 -->
+            <article class="fact-card">
+                <div class="card-header">🦜</div>
+                <div class="card-body">
+                    <span class="card-tag">Brain Power</span>
+                    <h3>The Lyrebird</h3>
+                    <p>Found in Australia, the Superb Lyrebird is the world’s best mimic. It can imitate the sounds of over 20 other species, including chainsaws, car engines, and camera shutters perfectly.</p>
+                </div>
+            </article>
+
+            <!-- Fact 3 -->
+            <article class="fact-card">
+                <div class="card-header">🐧</div>
+                <div class="card-body">
+                    <span class="card-tag">Aquatic Skill</span>
+                    <h3>Penguins: Birds That Swim</h3>
+                    <p>You might think Penguins can't fly, but they are essentially flightless birds adapted for swimming. The Gentoo penguin is actually the fastest swimmer in the bird world, reaching speeds of 22 mph (36 km/h).</p>
+                </div>
+            </article>
+
+            <!-- Fact 4 -->
+            <article class="fact-card">
+                <div class="card-header">🐦</div>
+                <div class="card-body">
+                    <span class="card-tag">Tiny Titan</span>
+                    <h3>The Hummingbird</h3>
+                    <p>Hummingbirds are the smallest birds in the world, but they have the biggest hearts (proportionally). Their wings beat 80 times per second, and they are the only birds that can fly backwards!</p>
+                </div>
+            </article>
+
+            <!-- Fact 5 -->
+            <article class="fact-card">
+                <div class="card-header">🦉</div>
+                <div class="card-body">
+                    <span class="card-tag">Night Vision</span>
+                    <h3>Rotating Heads</h3>
+                    <p>Owls have extremely flexible necks. They can turn their heads up to 270 degrees (almost backwards!) without moving their shoulders, giving them incredible hunting vision.</p>
+                </div>
+            </article>
+
+            <!-- Fact 6 -->
+            <article class="fact-card">
+                <div class="card-header">🐤</div>
+                <div class="card-body">
+                    <span class="card-tag">Migration</span>
+                    <h3>The Arctic Tern</h3>
+                    <p>The Arctic Tern has the longest migration route of any animal in the world. It flies from its breeding grounds in the Arctic to winter in the Antarctic—roughly 25,000 miles roundtrip every year.</p>
+                </div>
+            </article>
+
+        </div>
+    
+<section class="container">
+<div class="intro-text">
+<h2>Bird Gallery</h2>
+<p>Explore some amazing birds and discover unique facts about them.</p>
+</div>
+
+<div class="facts-grid">
+
+<article class="fact-card">
+<div class="card-header">🦚</div>
+<div class="card-body">
+<h3>Peacock</h3>
+<p>Peacocks display colorful feathers to attract mates and are famous for their brilliant tail patterns.</p>
+</div>
+</article>
+
+<article class="fact-card">
+<div class="card-header">🦢</div>
+<div class="card-body">
+<h3>Swan</h3>
+<p>Swans are elegant water birds known for graceful swimming and long migrations.</p>
+</div>
+</article>
+
+<article class="fact-card">
+<div class="card-header">🦩</div>
+<div class="card-body">
+<h3>Flamingo</h3>
+<p>Flamingos get their pink color from pigments found in their food.</p>
+</div>
+</article>
+
+</div>
+</section>
+
+<section class="container">
+<div class="intro-text">
+<h2>More Bird Facts</h2>
+<p>Birds have incredible adaptations and behaviors.</p>
+</div>
+<ul style="line-height:2">
+<li>Many birds use Earth's magnetic field for navigation.</li>
+<li>Parrots can solve puzzles and remember patterns.</li>
+<li>Some birds sleep with one half of the brain awake.</li>
+<li>Ostriches are the largest living birds.</li>
+</ul>
+</section>
+
+
+<section class="container">
+<div class="contact-form" id="contact">
+<h2>Contact Us</h2>
+<p>Send us your message or bird suggestions.</p>
+
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<input type="tel" placeholder="Phone Number">
+<textarea rows="5" placeholder="Write your message..." required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+</section>
+
+</main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Feathered Marvels. Created for Bird Lovers.</p>
+    </footer>
+
+</body>
+</html>
